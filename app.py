@@ -9,6 +9,7 @@ app = Flask(__name__)
 # Load the API key from an environment variable
 try:
     api_key = os.environ.get("GEMINI_API_KEY")
+    model = os.environ.get("MODEL_NAME")
     if not api_key:
         raise ValueError("GEMINI_API_KEY environment variable not set.")
     
@@ -49,7 +50,7 @@ try:
     }
     
     # We only set the model name here. The full config will be in the request.
-    model = genai.GenerativeModel("gemini-2.5-flash-preview-09-2025")
+    model = genai.GenerativeModel(model)
     
 except ValueError as e:
     print(e)
