@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI Career Guide – Home</title>
+
+  <!-- Tailwind + custom config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={
+      theme:{
+        extend:{
+          colors:{
+            brand:'#6366f1',      // indigo-500
+            'brand-light':'#a5b4fc',
+            'brand-dark':'#4338ca'
+          },
+          fontFamily:{
+            sans:['Inter','system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Tiny JS helper (shared) -->
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+      // mobile nav toggle
+      const btn=document.getElementById('nav-toggle');
+      const menu=document.getElementById('mobile-menu');
+      if(btn) btn.addEventListener('click',()=>menu.classList.toggle('hidden'));
+      // smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click',e=>{
+          e.preventDefault();
+          document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})
+        })
+      });
+    });
+  </script>
+
+  <style>
+    /* glass-morphism card */
+    .glass{
+      background:rgba(23,25,35,.55);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    /* animated gradient text */
+    .gradient-text{
+      background:linear-gradient(120deg,#818cf8,#c084fc);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-900 text-slate-100 font-sans">
+
+<!-- ===== header / nav ===== -->
+<header class="fixed top-0 left-0 right-0 z-20 glass">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="text-xl font-bold gradient-text">AI Career Guide</a>
+
+    <!-- mobile hamburger -->
+    <button id="nav-toggle" class="md:hidden p-2 rounded-md hover:bg-slate-800">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round"
+           d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+
+    <!-- desktop links -->
+    <nav class="hidden md:flex gap-6 text-sm">
+      <a href="assessment" class="hover:text-brand-light transition">Assessment</a>
+      <a href="#features" class="hover:text-brand-light transition">Features</a>
+      <a href="#contact" class="hover:text-brand-light transition">Contact</a>
+    </nav>
+  </div>
+
+  <!-- mobile menu -->
+  <nav id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+    <a href="assessment" class="block py-2 hover:text-brand-light">Assessment</a>
+    <a href="#features" class="block py-2 hover:text-brand-light">Features</a>
+    <a href="#contact" class="block py-2 hover:text-brand-light">Contact</a>
+  </nav>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 pt-32 pb-16">
+
+  <!-- hero -->
+  <section class="text-center">
+    <h1 class="text-5xl md:text-6xl font-extrabold gradient-text mb-6">
+      Stop Guessing. Start Planning.
+    </h1>
+    <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10">
+      Discover modern careers that fit your personality, then follow a clear roadmap to get there.
+    </p>
+    <a href="assessment"
+       class="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-brand hover:bg-brand-dark text-white font-semibold shadow-lg hover:scale-105 transition">
+      Start Your Assessment
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- features -->
+  <section id="features" class="mt-24 grid md:grid-cols-3 gap-6">
+    <div class="glass rounded-2xl p-6">
+      <span class="mb-4 inline-block p-3 rounded-full bg-brand/20 text-brand">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+        </svg>
+      </span>
+      <h3 class="text-xl font-semibold mb-2">1. Discover Your DNA</h3>
+      <p class="text-slate-400 text-sm">A 3-minute quiz uncovers your interests, values and working style.</p>
+    </div>
+
+    <div class="glass rounded-2xl p-6">
+      <span class="mb-4 inline-block p-3 rounded-full bg-brand/20 text-brand">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+        </svg>
+      </span>
+      <h3 class="text-xl font-semibold mb-2">2. Get AI Matches</h3>
+      <p class="text-slate-400 text-sm">Our engine suggests careers you didn’t even know existed.</p>
+    </div>
+
+    <div class="glass rounded-2xl p-6">
+      <span class="mb-4 inline-block p-3 rounded-full bg-brand/20 text-brand">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+        </svg>
+      </span>
+      <h3 class="text-xl font-semibold mb-2">3. Receive a Roadmap</h3>
+      <p class="text-slate-400 text-sm">A step-by-step skill plan you can start <em>today</em>.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== footer ===== -->
+<footer id="contact" class="max-w-5xl mx-auto px-6 pb-8 text-center text-slate-400 text-sm">
+  Built with &hearts; and Tailwind CSS.
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Your Career Matches</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={
+      theme:{
+        extend:{
+          colors:{
+            brand:'#6366f1',
+            'brand-light':'#a5b4fc',
+            'brand-dark':'#4338ca'
+          },
+          fontFamily:{
+            sans:['Inter','system-ui','sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glass{
+      background:rgba(23,25,35,.55);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .gradient-text{
+      background:linear-gradient(120deg,#818cf8,#c084fc);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-900 text-slate-100 font-sans">
+
+<header class="fixed top-0 left-0 right-0 z-20 glass">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="text-xl font-bold gradient-text">AI Career Guide</a>
+    <a href="assessment" class="text-sm hover:text-brand-light transition">&larr; Retake Assessment</a>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 pt-32 pb-16">
+
+  <h1 class="text-4xl md:text-5xl font-extrabold gradient-text text-center mb-2">
+    Your Top Career Matches
+  </h1>
+  <p class="text-center text-slate-300 mb-12">Based on your profile, here are paths you'd be great at!</p>
+
+  <!-- ========== Jinja loop starts ========== -->
+  {% for career in careers %}
+  <div class="glass rounded-2xl p-6 md:p-8 mb-8">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-light mb-3">{{ career.title }}</h2>
+
+    <div class="mb-6">
+      <h3 class="font-semibold text-slate-200 mb-1">Why you're a match</h3>
+      <p class="text-slate-400">{{ career.match_reason }}</p>
+    </div>
+
+    <div>
+      <h3 class="font-semibold text-slate-200 mb-3">Recommended roadmap</h3>
+      <ul class="space-y-3">
+        {% for step in career.roadmap %}
+        <li class="flex items-start gap-3">
+          <span class="shrink-0 w-6 h-6 rounded-full bg-brand grid place-items-center">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </span>
+          <span class="text-slate-300">{{ step }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% else %}
+  <!-- empty state -->
+  <div class="glass rounded-2xl p-8 text-center">
+    <h2 class="text-xl font-semibold mb-2">No results found</h2>
+    <p class="text-slate-400 mb-6">The AI couldn't generate matches. Try again or tweak your answers.</p>
+    <a href="assessment" class="inline-block px-6 py-2 rounded-lg bg-brand hover:bg-brand-dark text-white font-semibold">Try Again</a>
+  </div>
+  {% endfor %}
+  <!-- ========== Jinja loop ends ========== -->
+
+  <div class="text-center mt-12">
+    <a href="assessment" class="text-brand-light hover:text-brand transition">&larr; Back to Assessment</a>
+  </div>
+
+</main>
+
+</body>
+</html>

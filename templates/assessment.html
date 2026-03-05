@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Career Assessment</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={
+      theme:{
+        extend:{
+          colors:{
+            brand:'#6366f1',      // indigo-500
+            'brand-light':'#a5b4fc',
+            'brand-dark':'#4338ca'
+          },
+          fontFamily:{
+            sans:['Inter','system-ui','sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glass{
+      background:rgba(23,25,35,.55);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .gradient-text{
+      background:linear-gradient(120deg,#818cf8,#c084fc);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-900 text-slate-100 font-sans">
+
+<header class="fixed top-0 left-0 right-0 z-20 glass">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="text-xl font-bold gradient-text">AI Career Guide</a>
+    <a href="/" class="text-sm hover:text-brand-light transition">&larr; Back to Home</a>
+  </div>
+</header>
+
+<main class="max-w-2xl mx-auto px-6 pt-32 pb-16">
+
+  <h1 class="text-4xl md:text-5xl font-extrabold gradient-text text-center mb-2">
+    Discover Your Career DNA
+  </h1>
+  <p class="text-center text-slate-300 mb-10">Answer a few questions to get your personalised matches.</p>
+
+  <form action="results" method="POST" class="glass rounded-2xl p-6 md:p-8 space-y-6">
+
+    <!-- Q1 -->
+    <div>
+      <label for="subjects" class="block text-sm font-medium mb-2">Favourite (or least-hated) school subjects</label>
+      <input id="subjects" name="subjects" type="text" required
+             class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 focus:border-brand focus:ring-brand focus:ring-2 outline-none transition"
+             placeholder="e.g. Math, Art, Physics, English">
+    </div>
+
+    <!-- Q2 -->
+    <div>
+      <label for="hobbies" class="block text-sm font-medium mb-2">What do you do for fun?</label>
+      <textarea id="hobbies" name="hobbies" rows="3" required
+                class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 focus:border-brand focus:ring-brand focus:ring-2 outline-none transition"
+                placeholder="e.g. coding, painting, basketball, cosplay…"></textarea>
+    </div>
+
+    <!-- Q3 -->
+    <fieldset>
+      <legend class="text-sm font-medium mb-3">Preferred work style</legend>
+      <div class="space-y-3">
+        <label class="flex items-center p-4 rounded-lg bg-slate-800 border border-slate-700 has-[:checked]:border-brand has-[:checked]:ring-2 has-[:checked]:ring-brand transition">
+          <input type="radio" name="style" value="team" class="h-4 w-4 text-brand bg-slate-700 border-slate-600 focus:ring-0" checked>
+          <span class="ml-3">Working in a collaborative team</span>
+        </label>
+        <label class="flex items-center p-4 rounded-lg bg-slate-800 border border-slate-700 has-[:checked]:border-brand has-[:checked]:ring-2 has-[:checked]:ring-brand transition">
+          <input type="radio" name="style" value="solo" class="h-4 w-4 text-brand bg-slate-700 border-slate-600 focus:ring-0">
+          <span class="ml-3">Working independently on my own tasks</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Q4 -->
+    <fieldset>
+      <legend class="text-sm font-medium mb-3">Most important in a future job</legend>
+      <div class="space-y-3">
+        <label class="flex items-center p-4 rounded-lg bg-slate-800 border border-slate-700 has-[:checked]:border-brand has-[:checked]:ring-2 has-[:checked]:ring-brand transition">
+          <input type="radio" name="value" value="salary" class="h-4 w-4 text-brand bg-slate-700 border-slate-600 focus:ring-0" checked>
+          <span class="ml-3">High salary and financial stability</span>
+        </label>
+        <label class="flex items-center p-4 rounded-lg bg-slate-800 border border-slate-700 has-[:checked]:border-brand has-[:checked]:ring-2 has-[:checked]:ring-brand transition">
+          <input type="radio" name="value" value="creativity" class="h-4 w-4 text-brand bg-slate-700 border-slate-600 focus:ring-0">
+          <span class="ml-3">Creativity and self-expression</span>
+        </label>
+        <label class="flex items-center p-4 rounded-lg bg-slate-800 border border-slate-700 has-[:checked]:border-brand has-[:checked]:ring-2 has-[:checked]:ring-brand transition">
+          <input type="radio" name="value" value="impact" class="h-4 w-4 text-brand bg-slate-700 border-slate-600 focus:ring-0">
+          <span class="ml-3">Helping others and making a difference</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- submit -->
+    <button type="submit"
+            class="w-full py-3 px-4 rounded-lg bg-brand hover:bg-brand-dark text-white font-semibold shadow-lg hover:scale-105 transition">
+      Find My Career Matches
+    </button>
+  </form>
+
+</main>
+
+</body>
+</html>

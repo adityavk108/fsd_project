@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Oops – AI Career Guide</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={
+      theme:{
+        extend:{
+          colors:{
+            brand:'#6366f1',
+            'brand-light':'#a5b4fc',
+            'brand-dark':'#4338ca'
+          },
+          fontFamily:{
+            sans:['Inter','system-ui','sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glass{
+      background:rgba(23,25,35,.55);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .gradient-text{
+      background:linear-gradient(120deg,#818cf8,#c084fc);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-900 text-slate-100 font-sans flex items-center justify-center min-h-screen p-8">
+
+<div class="glass rounded-2xl p-8 max-w-xl w-full text-center">
+  <h1 class="text-3xl md:text-4xl font-extrabold gradient-text mb-4">Oops! Something went wrong</h1>
+  <p class="text-slate-300 mb-6">We couldn't process your answers. Details below:</p>
+
+  <div class="bg-slate-800 text-left p-4 rounded-lg border border-slate-700 text-rose-400 font-mono text-sm mb-8">
+    <strong>Error:</strong> {{ error_message }}
+  </div>
+
+  <a href="assessment"
+     class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-brand hover:bg-brand-dark text-white font-semibold shadow-lg hover:scale-105 transition">
+    &larr; Try the Assessment Again
+  </a>
+</div>
+
+</body>
+</html>
