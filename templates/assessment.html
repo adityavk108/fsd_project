@@ -44,7 +44,11 @@
 <header class="fixed top-0 left-0 right-0 z-20 glass">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
     <a href="/" class="text-xl font-bold gradient-text">AI Career Guide</a>
-    <a href="/" class="text-sm hover:text-brand-light transition">&larr; Back to Home</a>
+    <div class="flex items-center gap-4 text-sm">
+      <span class="text-slate-400 hidden md:block">{{ current_user.email }}</span>
+      <a href="{{ url_for('history') }}" class="hover:text-brand-light transition">History</a>
+      <a href="{{ url_for('logout') }}" class="text-red-400 hover:text-red-300 transition">Logout</a>
+    </div>
   </div>
 </header>
 

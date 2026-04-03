@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Login – AI Career Guide</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={
+      theme:{
+        extend:{
+          colors:{
+            brand:'#6366f1',
+            'brand-light':'#a5b4fc',
+            'brand-dark':'#4338ca'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass{background:rgba(23,25,35,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08);}
+    .gradient-text{background:linear-gradient(120deg,#818cf8,#c084fc);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex items-center justify-center">
+
+<div class="w-full max-w-md p-8">
+  <div class="glass rounded-2xl p-8">
+    <a href="/" class="text-xl font-bold gradient-text">AI Career Guide</a>
+    
+    <h1 class="text-2xl font-bold mt-6 mb-2">Welcome back</h1>
+    <p class="text-slate-400 text-sm mb-6">Sign in to access your career assessments</p>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="mb-4 p-3 rounded-lg bg-red-500/20 text-red-300 text-sm">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    
+    <form method="POST" class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">Email</label>
+        <input type="email" name="email" required
+               class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 focus:border-brand focus:outline-none">
+      </div>
+      
+      <div>
+        <label class="block text-sm font-medium mb-1">Password</label>
+        <input type="password" name="password" required
+               class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 focus:border-brand focus:outline-none">
+      </div>
+      
+      <button type="submit"
+              class="w-full py-3 rounded-lg bg-brand hover:bg-brand-dark text-white font-semibold transition">
+        Sign In
+      </button>
+    </form>
+    
+    <p class="mt-6 text-center text-sm text-slate-400">
+      Don't have an account?
+      <a href="{{ url_for('register') }}" class="text-brand hover:text-brand-light">Sign up</a>
+    </p>
+  </div>
+  
+  
+</div>
+
+</body>
+</html>
